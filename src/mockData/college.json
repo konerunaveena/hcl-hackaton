@@ -1,0 +1,36 @@
+ {
+    "collgeInfo": [
+    {
+        "id": 1,
+        "collegeName":"JNTU",
+        "year" :"1981",
+        "code":"JNTUH",
+        "address":"Kukatpally,Hyderabad-500019",
+        "emailId":"junth@gamil.com"
+        },
+        {
+            "id":"2",
+            "collegeName":"OSMANIA",
+            "year" :"1971",
+            "code":"OSMANIA",
+            "address":"Secundrabad,Hyderabad-500119",
+            "emailId":"osmania@gamil.com"
+        },
+        {
+            "id":"3",
+            "collegeName":"Mysore University",
+            "year" :"1971",
+            "code":"OSMANIA",
+            "address":"Secundrabad,Hyderabad-500119",
+            "emailId":"osmania@gamil.com"
+        },
+        {
+            "id":"4",
+            "collegeName":"Bangalore University",
+            "year" :"1971",
+            "code":"OSMANIA",
+            "address":"Secundrabad,Hyderabad-500119",
+            "emailId":"osmania@gamil.com"
+        }
+    ]
+}
