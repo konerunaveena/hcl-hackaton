@@ -1,7 +1,8 @@
- {
+{
     "collgeInfo": [
     {
-        "id": 1,
+        "collegeId": 1,
+        "cityId":1,
         "collegeName":"JNTU",
         "year" :"1981",
         "code":"JNTUH",
@@ -9,7 +10,8 @@
         "emailId":"junth@gamil.com"
         },
         {
-            "id":"2",
+            "collegeId":2,
+            "cityId":1,
             "collegeName":"OSMANIA",
             "year" :"1971",
             "code":"OSMANIA",
@@ -17,7 +19,8 @@
             "emailId":"osmania@gamil.com"
         },
         {
-            "id":"3",
+            "collegeId":3,
+            "cityId":2,
             "collegeName":"Mysore University",
             "year" :"1971",
             "code":"OSMANIA",
@@ -25,7 +28,8 @@
             "emailId":"osmania@gamil.com"
         },
         {
-            "id":"4",
+            "collegeId":4,
+            "cityId":2,
             "collegeName":"Bangalore University",
             "year" :"1971",
             "code":"OSMANIA",

@@ -5,7 +5,7 @@ class City extends React.Component {
         super(props);
         this.state = {
             citiesInfo: [],
-            cities: [],
+            collegesInfo: [],
             selectedColleges: []
         }
     }
@@ -14,10 +14,19 @@ class City extends React.Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
-
                     this.setState({ citiesInfo: result });
-                    this.uniqueCities();
+                }, (error) => {
+                    console.log(error);
+                }
+            )
+    }
+
+    getColleges() {
+        fetch("http://localhost:3002/collgeInfo")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({ collegesInfo: result })
                 }, (error) => {
                     console.log(error);
                 }
@@ -26,50 +35,34 @@ class City extends React.Component {
 
     componentDidMount() {
         this.getCityInfo();
-
-    }
-
-    uniqueCities() {
-        const uniqueCities = [];
-        this.state.citiesInfo.map(obj => {
-            if (uniqueCities.indexOf(obj.city) === -1) {
-                uniqueCities.push(obj.city)
-            }
-        });
-        this.setState({ cities: uniqueCities });
+        this.getColleges();
     }
 
     getCityValue(event) {
-        if (event.target.value !== "") {
-
-            console.log(event.target.value);
-            const collegeNames = [];
-            this.state.citiesInfo.map(obj => {
-                if (obj.city === event.target.value) {
-                    collegeNames.push(obj.collegeName);
-                }
-            });
-            this.setState({ selectedColleges : collegeNames})
-
+        if (event.target.value) {
+            const selectedColleges = []
+            this.state.collegesInfo.map(collegeInfo => {
+                if (collegeInfo.cityId == event.target.value)
+                    selectedColleges.push(collegeInfo)
+            })
+            this.setState({ selectedColleges: selectedColleges })
         }
     }
     render() {
         return (
             <div>
-                <h4> City Info</h4>
+                <h4> City Info {this.state.selectedCity}</h4>
                 <select onChange={(event) => this.getCityValue(event)}>
                     <option value="">Select</option>
                     {
-                        this.state.cities.map(function (city, key) {
-                            return (
-                                <option key={key} value={city}>{city}</option>)
-                        }
+                        this.state.citiesInfo.map(city =>
+                            <option key={city.city + city.id} value={city.id}>{city.city}</option>
+
                         )
                     }
 
                 </select>
-               
-                <College data={this.state.selectedColleges}/>
+                { this.state.selectedColleges.length && <College colleges={this.state.selectedColleges} />}
             </div>
         )
     }
