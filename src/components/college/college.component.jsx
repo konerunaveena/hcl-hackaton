@@ -4,7 +4,8 @@ class College extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCollegeInfo: null
+      selectedCollegeInfo: null,
+      showCollegeInfo: false
     }
   }
 
@@ -16,6 +17,11 @@ class College extends React.Component {
       }
     })
   }
+
+  getCollegeInfo(){
+    this.setState({showCollegeInfo: true});
+  }
+
 
   render() {
     const colleges = this.props.colleges;
@@ -35,9 +41,9 @@ class College extends React.Component {
 
         </select>
 
-        <button type="button">View More</button>
+        <button type="button" onClick={()=>this.getCollegeInfo()}>View More</button>
         {
-          this.state.selectedCollegeInfo && (
+          this.state.showCollegeInfo && this.state.selectedCollegeInfo && (
             <div>
               <p>City ID: {this.state.selectedCollegeInfo.cityId}</p>
               <p>College ID: {this.state.selectedCollegeInfo.collegeId}</p>

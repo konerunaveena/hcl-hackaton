@@ -51,7 +51,7 @@ class City extends React.Component {
     render() {
         return (
             <div>
-                <h4> City Info {this.state.selectedCity}</h4>
+                <h4> City Info </h4>
                 <select onChange={(event) => this.getCityValue(event)}>
                     <option value="">Select</option>
                     {
